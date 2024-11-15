@@ -16,7 +16,6 @@
     <Content Include=".gitignore" />
     <Content Include="Dockerfile" />
     <Content Include="entrypoint.sh" />
-    <Content Include="jmeter.properties" />
     <Content Include="LICENCE" />
     <Content Include="README.md" />
     <Content Include="scenarios\test.jmx" />
