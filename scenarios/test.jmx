@@ -41,6 +41,46 @@
         </elementProp>
       </ThreadGroup>
       <hashTree>
+        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Set Custom Metric Defaults" enabled="false">
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">vars.put(&quot;ImportNotificationCollectionCount&quot;, &quot;0&quot;)
+vars.put(&quot;MovementCollectionCount&quot;, &quot;0&quot;)
+
+def syncResources = [&quot;ImportNotification&quot;, &quot;ClearanceRequest&quot;]
+
+for (resource in SyncResources) {
+	vars.put(&quot;${resource}BlobsRead&quot;, &quot;0&quot;)
+	vars.put(&quot;${resource}BlobsPublished&quot;, &quot;0&quot;)
+	vars.put(&quot;${resource}BlobsFailed&quot;, &quot;0&quot;)
+	vars.put(&quot;${resource}MessagesProcessed&quot;, &quot;0&quot;)
+	vars.put(&quot;${resource}MessagesFailed&quot;, &quot;0&quot;)
+}
+</stringProp>
+          <stringProp name="scriptLanguage">groovy</stringProp>
+        </JSR223PreProcessor>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Set Custom Metric Defaults" enabled="true">
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">vars.put(&quot;ImportNotificationCollectionCount&quot;, &quot;0&quot;)
+vars.put(&quot;MovementCollectionCount&quot;, &quot;0&quot;)
+
+def syncResources = [&quot;ImportNotification&quot;, &quot;ClearanceRequest&quot;]
+
+for (resource in syncResources) {
+	vars.put(&quot;${resource}BlobsRead&quot;, &quot;0&quot;)
+	vars.put(&quot;${resource}BlobsPublished&quot;, &quot;0&quot;)
+	vars.put(&quot;${resource}BlobsFailed&quot;, &quot;0&quot;)
+	vars.put(&quot;${resource}MessagesProcessed&quot;, &quot;0&quot;)
+	vars.put(&quot;${resource}MessagesFailed&quot;, &quot;0&quot;)
+}
+</stringProp>
+          <stringProp name="scriptLanguage">groovy</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Clear database" enabled="true">
           <stringProp name="HTTPSampler.domain">${HOST}</stringProp>
           <stringProp name="HTTPSampler.port">${PORT}</stringProp>
@@ -282,7 +322,7 @@ for (job in response.jobs) {
                 <stringProp name="JSONPostProcessor.defaultValues">0,0</stringProp>
               </JSONPostProcessor>
               <hashTree/>
-              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Store Custom Metrics" enabled="true">
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Store Custom Metrics" enabled="false">
                 <stringProp name="cacheKey">true</stringProp>
                 <stringProp name="filename"></stringProp>
                 <stringProp name="parameters"></stringProp>
@@ -316,7 +356,7 @@ for (collection in response.collections) {
             <hashTree/>
           </hashTree>
         </hashTree>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
@@ -353,7 +393,7 @@ for (collection in response.collections) {
           <stringProp name="filename"></stringProp>
         </ResultCollector>
         <hashTree/>
-        <ResultCollector guiclass="RespTimeGraphVisualizer" testclass="ResultCollector" testname="Response Time Graph">
+        <ResultCollector guiclass="RespTimeGraphVisualizer" testclass="ResultCollector" testname="Response Time Graph" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
@@ -391,7 +431,7 @@ for (collection in response.collections) {
         </ResultCollector>
         <hashTree/>
       </hashTree>
-      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report">
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
