@@ -17,7 +17,7 @@ mkdir -p ${JM_REPORTS} ${JM_LOGS}
 SCENARIOFILE=${JM_SCENARIOS}/${TEST_SCENARIO}.jmx
 REPORTFILE=${NOW}-perftest-${TEST_SCENARIO}-report.csv
 LOGFILE=${JM_LOGS}/perftest-${TEST_SCENARIO}.log
-PROPERTIESFILE=${JM_HOME}/jmeter.properties
+PROPERTIESFILE=${JM_HOME}/user.properties
 
 # Run the test suite
 jmeter -n -t ${SCENARIOFILE} -q "${PROPERTIESFILE}" -e -l "${REPORTFILE}" -o ${JM_REPORTS} -j ${LOGFILE} -f -Jenv="${ENVIRONMENT}" -JTimespan="${JMETER_TIMESPAN:-All}" -JHost="${JMETER_HOST:=cdms-backend.perf-test.cdp-int.defra.cloud}" -JProtocol="${JMETER_Protocol:-https}" -JPort="${JMETER_PORT:-443}"

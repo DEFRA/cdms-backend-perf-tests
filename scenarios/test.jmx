@@ -41,26 +41,6 @@
         </elementProp>
       </ThreadGroup>
       <hashTree>
-        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Set Custom Metric Defaults" enabled="false">
-          <stringProp name="cacheKey">true</stringProp>
-          <stringProp name="filename"></stringProp>
-          <stringProp name="parameters"></stringProp>
-          <stringProp name="script">vars.put(&quot;ImportNotificationCollectionCount&quot;, &quot;0&quot;)
-vars.put(&quot;MovementCollectionCount&quot;, &quot;0&quot;)
-
-def syncResources = [&quot;ImportNotification&quot;, &quot;ClearanceRequest&quot;]
-
-for (resource in SyncResources) {
-	vars.put(&quot;${resource}BlobsRead&quot;, &quot;0&quot;)
-	vars.put(&quot;${resource}BlobsPublished&quot;, &quot;0&quot;)
-	vars.put(&quot;${resource}BlobsFailed&quot;, &quot;0&quot;)
-	vars.put(&quot;${resource}MessagesProcessed&quot;, &quot;0&quot;)
-	vars.put(&quot;${resource}MessagesFailed&quot;, &quot;0&quot;)
-}
-</stringProp>
-          <stringProp name="scriptLanguage">groovy</stringProp>
-        </JSR223PreProcessor>
-        <hashTree/>
         <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Set Custom Metric Defaults" enabled="true">
           <stringProp name="cacheKey">true</stringProp>
           <stringProp name="filename"></stringProp>
@@ -95,7 +75,7 @@ for (resource in syncResources) {
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="49586">200</stringProp>
             </collectionProp>
@@ -120,7 +100,7 @@ for (resource in syncResources) {
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="49586">200</stringProp>
             </collectionProp>
@@ -149,7 +129,7 @@ for (resource in syncResources) {
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="49588">202</stringProp>
               </collectionProp>
@@ -308,21 +288,7 @@ for (job in response.jobs) {
                 <intProp name="Assertion.test_type">1</intProp>
               </ResponseAssertion>
               <hashTree/>
-              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extract Collection Sizes" enabled="false">
-                <stringProp name="JSONPostProcessor.referenceNames">COLLECTION_SIZE</stringProp>
-                <stringProp name="JSONPostProcessor.jsonPathExprs">$..collections..size</stringProp>
-                <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
-                <stringProp name="JSONPostProcessor.defaultValues">0,0</stringProp>
-              </JSONPostProcessor>
-              <hashTree/>
-              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extract Collection Names" enabled="false">
-                <stringProp name="JSONPostProcessor.referenceNames">COLLECTION_NAME</stringProp>
-                <stringProp name="JSONPostProcessor.jsonPathExprs">$..collections..name</stringProp>
-                <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
-                <stringProp name="JSONPostProcessor.defaultValues">0,0</stringProp>
-              </JSONPostProcessor>
-              <hashTree/>
-              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Store Custom Metrics">
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Store Custom Metrics" enabled="true">
                 <stringProp name="cacheKey">true</stringProp>
                 <stringProp name="filename"></stringProp>
                 <stringProp name="parameters"></stringProp>
@@ -348,7 +314,7 @@ for (collection in response.collections) {
               </JSR223PostProcessor>
               <hashTree/>
             </hashTree>
-            <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Status Sampler">
+            <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Status Sampler" enabled="true">
               <boolProp name="displayJMeterProperties">false</boolProp>
               <boolProp name="displayJMeterVariables">true</boolProp>
               <boolProp name="displaySystemProperties">false</boolProp>
@@ -356,7 +322,7 @@ for (collection in response.collections) {
             <hashTree/>
           </hashTree>
         </hashTree>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
